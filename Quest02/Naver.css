@@ -1,19 +1,15 @@
 body{
     background-color: ghostwhite;
-    height: 2300px;
-    margin:0
-    
+    height: 3000px;
+    margin:0 
 }
-ul{margin:0;padding:0;}
+ul{
+    margin:0;
+    padding:0;
+}
 li{
-    list-style: none;
-   
-    
-    
+    list-style: none;  
 }
-.con{padding:25px;}
-
-
 a{
     color: inherit;
     text-decoration: none;
@@ -25,41 +21,31 @@ p{
 }
 
 .big {
+    /** hearder 영역 **/ 
     display: flex;
     justify-content: space-between;
-    
 }
-
-.container {
+.listclick {
+    /** 왼쪽 상단 리스트 **/
     display: flex;  
     align-items: center;
 }
+
 .QRNPAY {
+    /** 오른쪽 상단 QR+NaverPay **/
     display: flex;
-    justify-content: end;
     align-items: center;
-    
 }
-
-
 .under_main{
+    /** section 영역 **/
     width: 900px;
     margin: 0 auto;
 }
 .logo_naver{
+    /** naver로고 **/
     text-align: center;
-    width:530px;
     height:70px;
     margin:auto
-}
-#main_search{
-    width: 700px;
-    height: 68px;
-    padding: 5px;
-border: none;
-    font-size: 30px;
-    outline: none;
-    padding-left: 20px;
 }
 .big_search{
     border: 5px solid lawngreen;
@@ -73,13 +59,26 @@ border: none;
     top:30px;
     right: 18%; */
 }
+.main_search{
+    /**검색창**/
+    width: 700px;
+    height: 68px;
+    padding: 5px;
+    border: none;
+    font-size: 30px;
+    outline: none;
+    padding-left: 20px;
+}
+
 .big_searchicon{
+    /** 검색창 옆 아이콘 부모 = big_search **/
     position: absolute;
     right: 0;
     /* position: relative;
     right: 11.5%; */
 }
 .main_icon{
+    /** 검색 창 밑 아이콘 8개 의 영역 **/
     text-align: center;
     margin-top: 50px;
     /* position: relative;
@@ -88,6 +87,7 @@ border: none;
 }
 
 .under_input{
+    /** 첫번째 ul **/
     display: flex;
     /* position: relative;
     right: 5%; */
@@ -97,6 +97,7 @@ border: none;
     
 }
 .under2_input{
+    /** 두번 째 ul **/
     display: flex;
     /* position: relative;
     right: 5%;   */
@@ -105,14 +106,17 @@ border: none;
 }
 .eight_icon{
     width: 25%;
+    /** li 영역 1/4 **/
     
 }
 .eight_icon img{
+    /** li 자손 이미지 **/
     width: 70px;
     border-radius: 50%;
 }
 
 .infrmation{
+    /** 날씨 ~ 알립니다 영역 **/
     /* position: relative;
     top: 10px; */
     background:ghostwhite;
@@ -121,188 +125,262 @@ border: none;
     
 }
 .con{
+    /** 컨텐츠 영역 **/
     background:#fff;
     width:98%;
     margin:10px auto;
+    padding:30px;
+    
     
     
 }
 .weather{
+    /** 첫번째 컨텐츠 큰 영역 **/
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .weather_inf{
+    /** 첫번째 날씨 정보영역 **/
     display: flex;
    
 }
-.ac{
-    display: flex;
-    justify-content: flex-start;
-}
 .my_weather{
+    /** 두번째 컨텐츠 큰 영역 **/
     display: flex;
     text-align: center;
     justify-content: left;
-    
-
 
 }
-.my_weather_under{
+.my_weather_inf{
+    /** 날씨 동네 **/
     padding: 10px;
 }
 
 .sche_weather{
+    /** 요일 별 날씨 영역 ul **/
     display: flex;
-    
-    
-    
-    
 }
 .sche_weather li{
+    /** 날씨 시간대 별 li  영역 **/
     padding: 15px;
     margin-right:12px;
     margin-bottom: 15px;
-    background-color: gainsboro;
-    
+    background-color: whitesmoke
 }
 .sche_weather li:hover{
+     /** 날씨 li hover **/
     background-color: royalblue;
     color: white;
 
 }
-
-.sche2_weather div{
-    text-align: center;
-}
-
-
 .sche2_weather{
     display: flex;
     
 }
+
 .nine_icon{
+    /** sche2_weather li **/
+    /** 요일 별 날씨 각각의 영역 ul **/
     width: 11.1%;
+    text-align: center;
 }
 
 .covid{
+    /** 코로나 영역 **/
     display: flex;   
     margin-right: 15%;
     justify-content: space-between;
     text-align: center;
 }
 .covid_2{
+    /** image + 코로나19 영역 **/
     display: flex;
     
 }
 .covid_image{
+    /** covid image **/
     margin-top:20px
 }
 .covid_19{
+    /** 코로나 19 **/
     margin-top: 35px;
 
-    
 }
 .covid_ko{
-   
+    /** 국내외 확진 현황 **/
     margin-bottom: 20px;
 }
 .covid_3{
+    /** image2 + 코로나 19 팩트체크 영역  **/
     display: flex;
-    
 }
 .covid_image2{
+    /** covid image **/
     margin-top: 20px;
 }
 .covid_fact{
+    /** 코로나 19 팩트체크 영역 **/
+    margin-left: 5px;
     margin-top: 35px;
 }
 .medicine{
+    /** 백신 정보 팩트는 ? **/
+    margin-top: 5px;
+    margin-right: 50px;
     margin-bottom: 20px;
     
 }
 .korea{
+    /** 수립일 큰 영역 **/
     margin-left: 30%;
     display: flex;
     text-align: center;
 }
 .ko_day{
+    /** 102주년 수립일 영역 **/
     margin-top: 30px;
 }
 .app_list{
+    /** 앱 사용하기 큰 영역 **/
     display: flex;
     justify-content: space-between;
 }
 .app_list1{
+    /** 네이버 이미지 ~ 글자 영역 **/
     display: flex;
+    margin-top: 15px;
+}
+.app_play{
+    /** 앱 사용하기 p 태그 영역 **/
+    border: 5px solid royalblue;
+    padding: 10px;
+    color : 5px royalblue 
 }
 .Webtoon{
+    /** 웹툰 큰 영역 **/
     display: flex;
     justify-content: space-between;
 }
 .pan{
+    /** 인기 주제 판을 확인해 보세요 ! 영역 **/
     display: flex;
     justify-content: space-between;
 }
 
 .pan_1{
- 
+    /** 영화판 뿜판 영역 **/
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2,1fr);
 }
+.pan_1 li{
+    background-color:whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+.movie_pan{
+    /** 영화판 a 태그 **/
+    display: flex;
+    align-items: center;
+}
+.movie_image{
+    /** 영화판 img 태그 **/
+    width: 50px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+.boom_pan{
+    /** 뿜판 a 태그 **/
+    display: flex;
+    align-items: center;
+}
+.boom_image{
+    /** 뿜판 이미지 태그 **/
+    width: 50px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
 .pan_2{
-    
+    /** 웹툰판 경제 M판 영역 **/
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(2,1fr);
 }
-.update_naver{
+.pan_2 li{
+    background-color: whitesmoke;
+}
+.web_pan{
+    /** 웹툰판 a 태그 **/
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+.web_image{
+    /** 웹툰판 이미지 태그 **/
+    width: 50px;
+    padding: 10px;
+    background-color: whitesmoke;
+    
+}
+.eco_pan{
+    /** 경제판 a 태그 **/
+    display: flex;
+    align-items: center;
+}
+.eco_image{
+    /** 경제판 이미지 태그 **/
+    width: 50px;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+.update_naver{
+    /** 네이버 업데이트 영역 **/
+    display: flex;
     text-align: center;
 }
+.notice{
+    /** 알립니다 영역 **/
+    padding: 15px;
+    border: 5px solid rgb(59, 189, 30);
+    color: rgb(59, 189, 30);
+    border-radius: 50px;
+}
+.update_notice{
+    /** 네이버 업데이트 사전 안내 영역 **/
+    margin-left: 15px;
+    margin-top: 15px;
+}
 .footer{
-    
+    /** footer 전체 영역 **/
     width: 900px;
     margin: 0 auto;
+    margin-top: 100px;
 }
 .footer_main{
-
+    /** footer 메인 영역 **/
     width: 300px;
     margin: auto;
 }
 .last1{
-    text-align: center;
-    margin-bottom: 20px;
-
-}
-.last2{
+    /** 로그인 / 전체 서비스 / pc 버전 **/
     text-align: center;
     margin-bottom: 20px;
 }
-.last3{
-    text-align: center;
-}
-
 .info_link{    
-    
-    
+    /** last1,2,3 a 태그 각각의 영역 **/
     top: 7px;
     left: 0;
     width: 1px;
     height: 10px;
     
 }
-
-.pan_1 li{
-    background-color:gainsboro;
-
+.last2{
+    /** 이용약관~고객센터**/
+    text-align: center;
+    margin-bottom: 20px;
 }
-.pan_2 li{
-    background-color: gainsboro;
-}
-
-.under_input li{
-    
+.last3{
+    /** Naver **/
+    text-align: center;
 }
