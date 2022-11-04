@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var count = prompt("별의 층 수를 입력하세요")
+      function Star(){
+        for(var i = 1; i<=count; i+=2){
+          console.log(' '.repeat((count-i)/2) + '*'.repeat(i))
+
+          //for(var i = 1; i<=count; i+=2){
+            // console.log("&nbsp")
+
+          // }
+          // for(var j =1; j<=i;j++){
+          //   console.log("*")
+          // }
+          // console.log("<br>")
+      }
+    }
+      
+    Star(count);
+  </script>
+</body>
+</html>
