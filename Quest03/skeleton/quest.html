@@ -34,6 +34,54 @@
 
 		<script>
 		
+
+			var SquareList = [];
+			
+
+			function Add(){
+				for(var i=0; i<4; i++){
+				SquareList.push(document.getElementsByClassName("square")[i])
+
+				}
+			}
+
+			Add();
+
+
+			function Color(){
+				
+					SquareList[1].style.color = 'red';
+				
+			}
+
+			// document.getElementsByClassName("square")[0] = function() {
+			// 	Color()
+			// };
+
+			// document.getElementsByClassName("square")[1].addEventListener('click',function(){
+			// 	Color()
+			// });
+
+			
+			
+
+			var BoxList = [
+				SquareList[0].addEventListener('click',function(){Color()}),
+			SquareList[1].addEventListener('click',function(){Color()})
+			,SquareList[2].addEventListener('click',function(){Color()}),
+			SquareList[3].addEventListener('click',function(){Color()})
+		];
+
+			
+			BoxList.forEach(function(e){
+				console.log(e);
+			})
+				
+			
+			
+				
+			
+		
 		</script>
 	</body>
 </html>
