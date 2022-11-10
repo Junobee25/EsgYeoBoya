@@ -33,54 +33,153 @@
 		</section>
 
 		<script>
-		
-
+			
+			// square 클래스 square 변수에 담기
+			var square = document.getElementsByClassName("square");
+			// square의 부분집합을 담을 SquareList 선언
 			var SquareList = [];
 			
-
+			// Add 함수를 통해 square의 부분 집합을 (index:0~4) 까지 담음
 			function Add(){
-				for(var i=0; i<4; i++){
-				SquareList.push(document.getElementsByClassName("square")[i])
+				for(var i=0; i<(square.length)/2; i++){
+				SquareList.push(square[i])
 
 				}
 			}
-
 			Add();
 
+			// <홀짝> 클릭할때마다 나머지를 이용해서 색깔을 바꾸기 위해 변수count0~3 선언
+			var count0 = 1;
+			var count1 = 1;
+			var count2 = 1;
+			var count3 = 1;
 
-			function Color(){
-				
-					SquareList[1].style.color = 'red';
-				
+			// Color0~3 함수
+			function Color0(){
+					Change0();
 			}
 
-			// document.getElementsByClassName("square")[0] = function() {
-			// 	Color()
-			// };
 
-			// document.getElementsByClassName("square")[1].addEventListener('click',function(){
-			// 	Color()
-			// });
 
-			
-			
-
-			var BoxList = [
-				SquareList[0].addEventListener('click',function(){Color()}),
-			SquareList[1].addEventListener('click',function(){Color()})
-			,SquareList[2].addEventListener('click',function(){Color()}),
-			SquareList[3].addEventListener('click',function(){Color()})
-		];
-
-			
-			BoxList.forEach(function(e){
-				console.log(e);
-			})
+		function Color1(){
+			Change1();
 				
 			
-			
+		};
+		function Color2(){
 				
+			Change2();
 			
+		};
+		function Color3(){
+				
+			Change3();
+			
+		};
+
+
+		// 색깔 바꾸는 함수 if문을 통해 나머지가 0/1을 구분해서 색깔 지정
+		function Change0(){
+			count0 += 1;
+			if(count0%2==0){
+				SquareList[0].style.backgroundColor="Yellow";
+
+			}
+			else{
+				SquareList[0].style.backgroundColor="White";
+			}
+		}
+		function Change1(){
+			count1 += 1;
+			if(count1%2==0){
+				SquareList[1].style.backgroundColor="Yellow";
+
+			}
+			else{
+				SquareList[1].style.backgroundColor="White";
+			}
+		}
+		function Change2(){
+			count2 += 1;
+			if(count2%2==0){
+				SquareList[2].style.backgroundColor="Yellow";
+
+			}
+			else{
+				SquareList[2].style.backgroundColor="White";
+			}
+		}
+		function Change3(){
+			count3 += 1;
+			if(count3%2==0){
+				SquareList[3].style.backgroundColor="Yellow";
+
+			}
+			else{
+				SquareList[3].style.backgroundColor="White";
+			}
+		}
+
+		
+
+			// 이벤트리스너를 통해 인덱스에따른 컬러함수 실행
+			
+			SquareList[0].addEventListener('click',function(){Color0()})
+			SquareList[1].addEventListener('click',function(){Color1()})
+			SquareList[2].addEventListener('click',function(){Color2()})
+			SquareList[3].addEventListener('click',function(){Color3()})
+		
+//===================================== Question 2 ====================================================//
+
+
+		var SquareList2 = [];
+
+		function Add2(){
+			for(var i = (square.length)/2; i<square.length; i++){
+			SquareList2.push(square[i])
+		}
+		}
+		Add2();
+
+		function Select0(){
+			SquareList2[0].classList.toggle('enabled')
+		}
+		function Select1(){
+			SquareList2[1].classList.toggle('enabled')
+		}
+		function Select2(){
+			SquareList2[2].classList.toggle('enabled')
+		}
+		function Select3(){
+			SquareList2[3].classList.toggle('enabled')
+		}
+	
+
+	
+
+	
+
+	
+
+
+		SquareList2[0].addEventListener('click',function(){Select0()})
+		SquareList2[1].addEventListener('click',function(){Select1()})
+		SquareList2[2].addEventListener('click',function(){Select2()})
+		SquareList2[3].addEventListener('click',function(){Select3()})
+
+		
+
+
+		
+
+		
+
+	
+
+
+	
+	
+
 		
 		</script>
 	</body>
