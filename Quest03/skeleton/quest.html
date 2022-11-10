@@ -39,7 +39,7 @@
 			// square의 부분집합을 담을 SquareList 선언
 			var SquareList = [];
 			
-			// Add 함수를 통해 square의 부분 집합을 (index:0~4) 까지 담음
+			// Add 함수를 통해 square의 부분 집합을 (index:0~3) 까지 담음
 			function Add(){
 				for(var i=0; i<(square.length)/2; i++){
 				SquareList.push(square[i])
@@ -48,34 +48,37 @@
 			}
 			Add();
 
+	
+			// Color0~3 함수
+		// 	function Color0(){
+		// 			Change0();
+		// 	}
+
+
+
+		// function Color1(){
+		// 	Change1();
+				
+			
+		// };
+		// function Color2(){
+				
+		// 	Change2();
+			
+		// };
+		// function Color3(){
+				
+		// 	Change3();
+			
+		// };
+
+		
 			// <홀짝> 클릭할때마다 나머지를 이용해서 색깔을 바꾸기 위해 변수count0~3 선언
 			var count0 = 1;
 			var count1 = 1;
 			var count2 = 1;
 			var count3 = 1;
 
-			// Color0~3 함수
-			function Color0(){
-					Change0();
-			}
-
-
-
-		function Color1(){
-			Change1();
-				
-			
-		};
-		function Color2(){
-				
-			Change2();
-			
-		};
-		function Color3(){
-				
-			Change3();
-			
-		};
 
 
 		// 색깔 바꾸는 함수 if문을 통해 나머지가 0/1을 구분해서 색깔 지정
@@ -124,10 +127,10 @@
 
 			// 이벤트리스너를 통해 인덱스에따른 컬러함수 실행
 			
-			SquareList[0].addEventListener('click',function(){Color0()})
-			SquareList[1].addEventListener('click',function(){Color1()})
-			SquareList[2].addEventListener('click',function(){Color2()})
-			SquareList[3].addEventListener('click',function(){Color3()})
+			SquareList[0].addEventListener('click',function(){Change0()})
+			SquareList[1].addEventListener('click',function(){Change1()})
+			SquareList[2].addEventListener('click',function(){Change2()})
+			SquareList[3].addEventListener('click',function(){Change3()})
 		
 //===================================== Question 2 ====================================================//
 
