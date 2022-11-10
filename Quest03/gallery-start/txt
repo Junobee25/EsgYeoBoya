@@ -1,0 +1,22 @@
+// var imageNameArr = [];
+
+// for (i = 1; i <= 5; i++) {
+//   imageNameArr.push("pic" + i + ".jpg");
+// }
+/* Declaring the alternative text for each image file */
+// 각 이미지 파일의 대체 텍스트(img 태그 alt 속성값) 선언하기!
+// imageAltObj = {
+//   "pic1.jpg": "Closeup of a human eye",
+//   "pic2.jpg": "Rock",
+//   "pic3.jpg": "Violet flower",
+//   "pic4.jpg": "Egyptian Wall Painting",
+//   "pic5.jpg": "Butterfly",
+// };
+
+// for (var i = 0; i < imageNameArr.length; i++) {
+//   imageNameArr[i].onclick = changeImg;
+// }
+
+// function changeImg() {
+//   thumbBar.setAttribute("src", this.getAttribute("src"));
+// }
