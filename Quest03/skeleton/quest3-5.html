@@ -37,6 +37,81 @@
 
     <script>
       /** TODO: 여기에 게임이 작동될 수 있도록 스크립트를 짜보세요  */
+      var RCP = ['가위','바위','보'];
+      var setPrsSubmit = document.getElementsByClassName('setPrsSubmit')[0];
+      var btnScissors = document.getElementById('btnScissors');
+      var btnRock = document.getElementById('btnRock');
+      var btnPaper = document.getElementById('btnPaper');
+      console.log(setPrsSubmit);
+
+      setPrsSubmit.addEventListener('click',function(){
+        var computer = RCP[Math.floor(Math.random()*RCP.length)];
+        console.log(computer);
+
+
+        btnScissors.addEventListener('click',function(){
+        var scissorsValue = btnScissors.value;
+        
+        if(computer==='바위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "패배"
+        }
+        else if(computer==='가위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "무승부"
+
+        }
+        else if(computer==='보'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "승"
+        }
+        console.log(scissorsValue);
+      })
+
+      /*===============================================*/
+      btnRock.addEventListener('click',function(){
+        var rockValue = btnRock.value;
+        if(computer==='바위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "무승부"
+        }
+        else if(computer==='가위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "승"
+
+        }
+        else if(computer==='보'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "패"
+        }
+        console.log(rockValue);
+      })
+
+      /*===============================================*/
+      btnPaper.addEventListener('click',function(){
+        var paperValue = btnPaper.value;
+        if(computer==='바위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "승"
+        }
+        else if(computer==='가위'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "패"
+
+        }
+        else if(computer==='보'){
+          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+          resultArea.innerText = "무승부"
+          console.log(paperValue)
+        }
+      })
+
+      })
+
+      
+
+
+
       
 
     </script>
