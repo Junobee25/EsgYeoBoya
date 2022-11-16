@@ -62,65 +62,85 @@
     setDigitSubmit.addEventListener('click', function () {
 
 
-      var count = 0;
 
-      // while(true){
-
-      //   numberList.push(number[Math.floor(Math.random()*(8-0+1))+8])
-      //   numberList = Array.from(new Set(numberList));
-      //   console.log(numberList);
-
-      //   if(numberList.length===3){
-      //     break;
-      //   }
-
-      // }
 
       for(var i = 0; i < 3; i++){
         var random = Math.floor(Math.random()*number.length);
+        /*numberList -> 게임시작 시 랜덤한 3자리 숫자*/
+        /*splice를 통해 중복 제거*/
         numberList[i]= number.splice(random, 1)
       }
       console.log(numberList);
 
-      
-
-      
-
-    
     })
-
-
-    function playGame(){
-      
-    }
-
-
-
+    var playCount = 0;
+    
+    /* 정답 확인 제출 버튼 Event*/
     guessSubmit.addEventListener('click', function () {
-      var setNum = Number(guessField.value);
-      var strNum = Array.from(guessField.value);
-      console.log(strNum);
-      /** 게임시작시 랜덤값과 정답 값의 인덱스 비교 분석**/
-
-      var playCount = 1;
-      var strike = 0;
-      var ball = 0;
+      var Strike = 0;
+      var Ball = 0;
       
-
-        if (numberList[0] === strNum[0] &&
-          numberList[1] === strNum[1] &&
-          numberList[2] === strNum[2]) {
-
-          var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
-          resultArea.innerText = playCount+"회"+"승리";
-          
+      /*input text 입력 창 value -> Number 값*/
+      var setNum = (guessField.value);
+      /*입력한 세자리 수를 쪼개서 Array로 만듦*/
+      var strNum = Array.from(setNum);
+      var duplication = false;
+      /*중복 검사*/
+      for(var i = 0; i<strNum.length;i++){
+        for(var j = 1; j<strNum.length;j++){
+          if(strNum[i]===strNum[j]){
+            duplication = true;
+          }
         }
-        
-        
+
+      }
+      if(duplication===false){
+        /*alert("올바르지 않은 숫자 형식입니다 (원인 : 중복)")*/
+
+        if(strNum.length===3){
+          playCount +=1;
+          for(var i =0; i<3;i++){
+            for(var j=0; j<3;j++){
+              if(numberList[i][0]===strNum[j]){
+                Ball+=1;
+                if(i===j){
+                  Ball-=1;
+                  Strike+=1;
+                }
+              }
+            }
+          }
+            if(playCount>=10){
+              var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+              resultArea.innerText = "10회 초과!! 실패입니다."
+            }
+            else if(playCount<10){
+              var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+              resultArea.innerText = playCount + ' 회 ' + (Strike) + ' Strike ' + (Ball) + ' Ball'
+            }       
+          }
+        }
+
+      /*if(strNum.length>3){
+        alert("3자리 수를 입력해주세요")
+      }*/
       
+      
+      /** 게임시작시 랜덤값과 정답 값의 인덱스 비교 분석**/
+      
+        
+        
+        
+            /*결과 영역 부분 자식태그 가져와서 innerText로 text 변경*/
+          
+          
+        
+       
     
 
     })
+    
+    
 
 
   </script>
