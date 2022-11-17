@@ -53,96 +53,107 @@
     var setDigitSubmit = document.getElementsByClassName('setDigitSubmit')[0];
     var guessField = document.getElementById('guessField');
     var guessSubmit = document.getElementsByClassName('guessSubmit')[0];
-    var number = ['1','2','3','4','5','6','7','8','9'];
+    var number = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     var numberList = [];
     console.log(guessSubmit);
 
-
-
+    /*게임 시작시 정답확인이 클릭될 수 있도록 시작 전엔 disabled 상태로 둔다*/
+    guessSubmit.disabled = true;
+    /*게임횟수 playCount*/
+    var playCount = 0;
+    /*게임시작 버튼에 클릭 이벤트 부여*/
     setDigitSubmit.addEventListener('click', function () {
-
-
-
-
-      for(var i = 0; i < 3; i++){
-        var random = Math.floor(Math.random()*number.length);
-        /*numberList -> 게임시작 시 랜덤한 3자리 숫자*/
+        number = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        numberList =[];
+        playCount = 0;
+      /*numberList -> 게임시작 시 랜덤한 3자리 숫자*/
+      for (var i = 0; i < 3; i++) {
+        var random = Math.floor(Math.random() * number.length);
         /*splice를 통해 중복 제거*/
-        numberList[i]= number.splice(random, 1)
+        numberList[i] = number.splice(random, 1)
       }
       console.log(numberList);
-
-    })
-    var playCount = 0;
+      /*게임 시작시 disabled -> false*/
+      guessSubmit.disabled = false;
+      /*text 초기화*/
+      var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+      resultArea.innerText = "정답여부는 여기에!";
+      
     
+    })
+    
+
     /* 정답 확인 제출 버튼 Event*/
     guessSubmit.addEventListener('click', function () {
       var Strike = 0;
       var Ball = 0;
-      
+
       /*input text 입력 창 value -> Number 값*/
-      var setNum = (guessField.value);
+      var setNum = (Number(guessField.value));
       /*입력한 세자리 수를 쪼개서 Array로 만듦*/
-      var strNum = Array.from(setNum);
+
+      var strNum = Array.from(String(setNum));
       var duplication = false;
       /*중복 검사*/
-      for(var i = 0; i<strNum.length;i++){
-        for(var j = 1; j<strNum.length;j++){
-          if(strNum[i]===strNum[j]){
+      for (var i = 0; i < strNum.length; i++) {
+        for (var j = i + 1; j < strNum.length; j++) {
+          if (strNum[i] === strNum[j]) {
             duplication = true;
           }
         }
 
       }
-      if(duplication===false){
-        /*alert("올바르지 않은 숫자 형식입니다 (원인 : 중복)")*/
-
-        if(strNum.length===3){
-          playCount +=1;
-          for(var i =0; i<3;i++){
-            for(var j=0; j<3;j++){
-              if(numberList[i][0]===strNum[j]){
-                Ball+=1;
-                if(i===j){
-                  Ball-=1;
-                  Strike+=1;
+      /*disabled*/
+      if (setNum) {
+        /*만약 중복된 숫자가 없다면 if문 실행*/
+        if (duplication === false) {
+          /*(중복 X) ∩ (숫자길이=3) 일 때 if 문 실행 */
+          if (strNum.length === 3 && strNum.indexOf('0')===-1) {
+            playCount += 1;
+            /*Strike Ball 판정 for문*/
+            for (var i = 0; i < 3; i++) {
+              for (var j = 0; j < 3; j++) {
+                if (numberList[i][0] === strNum[j]) {
+                  Ball += 1;
+                  if (i === j) {
+                    Ball -= 1;
+                    Strike += 1;
+                    
+                  }
+                  
                 }
               }
             }
-          }
-            if(playCount>=10){
-              var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
-              resultArea.innerText = "10회 초과!! 실패입니다."
+            /*특별 케이스*/
+            if(Strike===3){
+                var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+                resultArea.innerText += '\n' +(playCount) + ' 회 ' + (Strike) + ' Strike ' + ' 승리! ';
+                guessSubmit.disabled = true;
+                
+              }
+            if((Strike===0)&&(Ball===0)){
+                var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+                resultArea.innerText += '\n'+ playCount + ' 회 ' + ' Out ! ';
+                
             }
-            else if(playCount<10){
-              var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
-              resultArea.innerText = playCount + ' 회 ' + (Strike) + ' Strike ' + (Ball) + ' Ball'
-            }       
+            
+            /*횟수 제한 if 문*/
+            if (playCount >= 10) {
+                var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+                resultArea.innerText = "10회 초과!! 실패입니다."
+                guessSubmit.disabled = true;
+                
+            }
+            else if (playCount < 10) {
+                var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
+                resultArea.innerText += '\n' + playCount + ' 회 ' + (Strike) + ' Strike ' + (Ball) + ' Ball';
+                
+                
+            }
           }
         }
-
-      /*if(strNum.length>3){
-        alert("3자리 수를 입력해주세요")
-      }*/
-      
-      
-      /** 게임시작시 랜덤값과 정답 값의 인덱스 비교 분석**/
-      
-        
-        
-        
-            /*결과 영역 부분 자식태그 가져와서 innerText로 text 변경*/
-          
-          
-        
-       
-    
-
+      }
     })
-    
-    
-
-
   </script>
 </body>
 

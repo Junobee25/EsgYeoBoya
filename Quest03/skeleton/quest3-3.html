@@ -1,127 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
 
-    <title>구구단 게임</title>
+<head>
+  <meta charset="utf-8">
 
-    <style>
-      body {
-        width: 50%;
-        max-width: 800px;
-        min-width: 480px;
-        margin: 0 auto;
+  <title>구구단 게임</title>
+
+  <style>
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>구구단 게임</h1>
+
+  <li style="margin-bottom:5px;">랜덤값으로 지정할 수 있는 최대 자릿수는 3입니다.</li>
+  <li style="margin-bottom:5px;">자릿수를 등록하면 해당 자릿수 크기의 숫자 2개가 랜덤으로 표시 됩니다.</li>
+  <li style="margin-bottom:5px;">랜덤으로 표시되는 2개 숫자의 곱셈값을 기록하세요.</li>
+  <div class="setDigitForm">
+    <label for="setDigitNum">자릿수를 설정해주세요: </label>
+    <input type="text" id="setDigitNum" class="setDigitNum">
+    <input type="submit" value="등록" class="setDigitSubmit">
+  </div>
+
+  <div class="form" style="margin-top:40px;">
+    <span id="randA">랜덤값A</span> X <span id="randB">랜덤값B</span> = <input type="text" id="guessField" class="guessField">
+    <input type="submit" value="정답확인" class="guessSubmit">
+  </div>
+
+  <div class="resultArea" style="margin-top:40px;">
+    <span>정답여부는 여기에!!</span>
+  </div>
+
+  <script>
+    /** TODO: 여기에 게임이 작동될 수 있도록 스크립트를 짜보세요  */
+
+    var setDigitNum = document.getElementById('setDigitNum');
+    var setDigitSubmit = document.getElementsByClassName('setDigitSubmit')[0];
+
+    /** 랜덤 수 생성 **/
+
+    function myNum(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    setDigitSubmit.addEventListener('click', function () {
+      /** input 태그에 입력한 value 값을 setNum 변수에 저장 **/
+      var setNum = Number(setDigitNum.value)
+      /** innerText 시 console 창에 값이 안나옴 **/
+      console.log(setNum)
+
+      /*setNum -> true and setNum ===1*/
+      if (setNum && (setNum === 1)) {
+        /** 0 보다 큰 1의 자리 숫자 2개 불러오기 **/
+        var setNum_1 = myNum(1, 9);
+        var setNum_2 = myNum(1, 9);
+
+        console.log("성공")
+        console.log("일의 자리 숫자 : ", setNum_1, ",", setNum_2);
+
+      }
+      else if (setNum && (setNum === 2)) {
+        /** 10의 자리 숫자 2개 불러오기 **/
+        var setNum_1 = myNum(10, 99);
+        var setNum_2 = myNum(10, 99);
+        console.log("십의 자리 숫자 : ", setNum_1, ",", setNum_2);
+      }
+      else if (setNum && (setNum === 3)) {
+        /** 100의 자리 숫자 2개 불러오기 **/
+        var setNum_1 = myNum(100, 999)
+        var setNum_2 = myNum(100, 999)
+        console.log("백의 자리 숫자 : ", setNum_1, ",", setNum_2);
       }
 
-    </style>
-  </head>
+      else {
+        alert("정수 or 1부터 3이하의 숫자를 입력하세요")
+      }
 
-  <body>
-    <h1>구구단 게임</h1>
-
-    <li style="margin-bottom:5px;">랜덤값으로 지정할 수 있는 최대 자릿수는 3입니다.</li>
-    <li style="margin-bottom:5px;">자릿수를 등록하면 해당 자릿수 크기의 숫자 2개가 랜덤으로 표시 됩니다.</li>
-    <li style="margin-bottom:5px;">랜덤으로 표시되는 2개 숫자의 곱셈값을 기록하세요.</li>
-    <div class="setDigitForm">
-      <label for="setDigitNum">자릿수를 설정해주세요: </label>
-      <input type="text" id="setDigitNum" class="setDigitNum">
-      <input type="submit" value="등록" class="setDigitSubmit">
-    </div>
-	
-    <div class="form" style="margin-top:40px;">
-      <span id="randA">랜덤값A</span> X <span id="randB">랜덤값B</span> =  <input type="text" id="guessField" class="guessField">
-      <input type="submit" value="정답확인" class="guessSubmit">
-    </div>
-
-    <div class="resultArea" style="margin-top:40px;">
-      <span>정답여부는 여기에!!</span>
-    </div>
-
-    <script>
-      /** TODO: 여기에 게임이 작동될 수 있도록 스크립트를 짜보세요  */
-
-      var setDigitNum = document.getElementById('setDigitNum');
-      var setDigitSubmit = document.getElementsByClassName('setDigitSubmit')[0];
-
-      /** 랜덤 수 생성 **/
-
-      function myNum(min,max){
-          return Math.floor(Math.random()*(max-min+1))+min;
-        }
-
-      setDigitSubmit.addEventListener('click',function(){
-        /** input 태그에 입력한 value 값을 setNum 변수에 저장 **/
-        var setNum = Number(setDigitNum.value)
-        /** innerText 시 console 창에 값이 안나옴 **/
-        console.log(setNum)
-
-        if (setNum && setNum ===1 ) {
-          /** 0 보다 큰 1의 자리 숫자 2개 불러오기 **/
-          var setNum_1 = myNum(1,9);
-          var setNum_2 = myNum(1,9);
-          
-          console.log("성공")
-          console.log("일의 자리 숫자 : " , setNum_1,"," ,setNum_2);
-
-        }
-        else if(setNum && setNum === 2){
-          /** 10의 자리 숫자 2개 불러오기 **/
-          var setNum_1 = myNum(10,99);
-          var setNum_2 = myNum(10,99);
-          console.log("십의 자리 숫자 : ", setNum_1,"," ,setNum_2);
-        }
-        else if(setNum && setNum ===3){
-          /** 100의 자리 숫자 2개 불러오기 **/
-          var setNum_1 = myNum(100,999)
-          var setNum_2 = myNum(100,999)
-          console.log("백의 자리 숫자 : ", setNum_1,"," ,setNum_2);
-        }
-
-        else{
-          alert("정수 or 1부터 3이하의 숫자를 입력하세요")
-        }
-
+      /*랜덤값 A,B 태그에 대한 Id 값 변수에 담기*/
       var randA = document.getElementById('randA');
       var randB = document.getElementById('randB');
+      /*innerText를 통해 Text 변경*/
       randA.innerText = setNum_1;
       randB.innerText = setNum_2;
-
+      /*정답 값 input 영역*/
       var guessField = document.getElementById('guessField');
+      /*정답확인 제출 input 영역*/
       var guessSubmit = document.getElementsByClassName('guessSubmit')[0]
 
-
-      guessSubmit.addEventListener('click',function(){
+      /*정답확인 제출 input에 이벤트 부여*/
+      guessSubmit.addEventListener('click', function () {
         var resultNum = Number(guessField.value);
 
         console.log(resultNum)
         /**정답 오답 로직**/
-        if (resultNum === setNum_1 * setNum_2){
+        if (resultNum === setNum_1 * setNum_2) {
           var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
           resultArea.innerText = "정답입니다"
         }
         /**nodelist 가운데 값 span 태그**/
-        else{
+        else {
           var resultArea = document.getElementsByClassName('resultArea')[0].childNodes[1];
           resultArea.innerText = "오답입니다"
         }
       })
 
-      })
-
-      
-
-      
-
-      
-      
-      
-     
-     
+    })
 
 
 
-      
-     
-    </script>
-  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
 </html>
