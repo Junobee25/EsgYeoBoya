@@ -1,1 +1,19 @@
 /* TODO: 자유롭게 바탕화면 시스템의 CSS를 만들어 보세요! */
+.desktop{
+  background-color: whitesmoke;
+  width: 1500px;
+
+  height: 1000px;
+}
+.getImage {
+  
+  width: 80px;
+  height: 80px;
+  padding: 30px;
+  position : relative;
+}
+.getFolder{
+  background-color: gainsboro;
+  width: 800px;
+  height: 500px; 
+}
