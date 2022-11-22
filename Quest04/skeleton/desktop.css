@@ -17,3 +17,11 @@
   width: 800px;
   height: 500px; 
 }
+
+
+.myChoice {
+  display: flex;
+  position: relative;
+  top: 900px;
+  left: 500px;
+}

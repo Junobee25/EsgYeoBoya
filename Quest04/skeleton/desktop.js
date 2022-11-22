@@ -46,9 +46,11 @@ class Folder {
 			this.myclass.setAttribute('class', 'getImage'); // img 태그 속성부여	
 			desktop.appendChild(this.myclass); // 요소 삽입
 		}
+		
 	
 
 	}
+	
 	
 };
 
