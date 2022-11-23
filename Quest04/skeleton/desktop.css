@@ -25,3 +25,17 @@
   top: 900px;
   left: 500px;
 }
+.menuButton {
+  display: flex;
+  
+}
+.menu1 {
+  padding: 10px;
+}
+.menu2 {
+  padding: 10px;
+}
+.menu3 {
+  padding: 10px;
+}
+
