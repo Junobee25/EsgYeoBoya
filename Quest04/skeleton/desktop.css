@@ -12,6 +12,12 @@
   padding: 30px;
   position : relative;
 }
+.getIcon {
+  width: 80px;
+  height: 80px;
+  padding: 30px;
+  position : relative;
+}
 .getFolder{
   background-color: gainsboro;
   width: 800px;
@@ -39,3 +45,13 @@
   padding: 10px;
 }
 
+.newWindow{
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 600;
+  opacity: 0.2;
+  
+  
+}
